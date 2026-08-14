@@ -14,7 +14,7 @@ Store_Location_City_Type = st.selectbox("Store Location City Type", ["Tier 1", "
 Store_Type = st.selectbox("Store Type", ["Supermarket Type1", "Supermarket Type2", "Departmental Store", "Food Mart"]) #Complete the code to define the UI element for Store_Type
 Product_Id_char = st.selectbox("Product ID Character", ["FD", "DR", "NC"]) #Complete the code to define the UI element for Product_Id_char
 Store_Age_Years = st.number_input("Store Age Years", min_value=0, value=10) #Complete the code to define the UI element for Store_Age_Years
-Product_Type_Category = st.selectbox("Product Type Category", ["Food", "Drinks", "Non Consumable"]) #Complete the code to define the UI element for Product_Type_Category
+Product_Type_Category = st.selectbox("Product Type Category", ["Perishables", "Non Perishables"]) #Complete the code to define the UI element for Product_Type_Category
 
 product_data = {
     "Product_Weight": Product_Weight,
@@ -30,7 +30,7 @@ product_data = {
 }
 
 if st.button("Predict", type='primary'):
-    response = requests.post("https://<user_name>-<space_name>.hf.space/v1/predict", json=product_data)    # Complete the code to enter user name and space name to correctly define the endpoint
+    response = requests.post("https://vigilant-space-palm-tree-4jv9rxgwvxj2pwq-7860.app.github.dev/v1/predict", json=product_data)    # Complete the code to enter user name and space name to correctly define the endpoint
     if response.status_code == 200:
         result = response.json()
         predicted_sales = result["Sales"]
